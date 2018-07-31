@@ -6,11 +6,10 @@ import { Route } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  password = "pass";
-  emailId = "email";
+  
   onlogin()
   {
-    localStorage.setItem('key', this.emailId);
+    
   }
 }
 
