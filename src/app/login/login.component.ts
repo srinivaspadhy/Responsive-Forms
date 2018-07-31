@@ -23,8 +23,8 @@ export class LoginComponent implements OnInit {
       gender: new FormControl(this.obj.gender, [Validators.required,Validators.pattern("A-Z"),Validators.pattern("a-z")]),
       contactnum: new FormControl(this.obj.cnt,[Validators.required,Validators.pattern("0-9"),Validators.maxLength(10)]),
       empId:new FormControl(this.obj.eid,[Validators.required,Validators.pattern("0-9"),Validators.maxLength(4)]),
-      password:new FormControl(this.obj.pass,[Validators.required,Validators.minLength(8),Validators.maxLength(16),forbiddenNameValidator(/bob/i)]),
-      confirmpassword:new FormControl(this.obj.cnfpass,[Validators.required,Validators.minLength(8),Validators.maxLength(16),forbiddenNameValidator(/bob/i)])
+      password:new FormControl(this.obj.pass,[Validators.required,Validators.minLength(8),Validators.maxLength(16)]),
+      confirmpassword:new FormControl(this.obj.cnfpass,[Validators.required,Validators.minLength(8),Validators.maxLength(16)])
 
     })
 
