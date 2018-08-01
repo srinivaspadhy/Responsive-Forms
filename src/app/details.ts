@@ -1,5 +1,13 @@
 export class Details {
-    
+    constructor(){
+       /* this.fname;
+        this.lname;
+        this.gender;
+        this.eid;
+        this.cnt;
+        this.cnfpass;
+        this.pass;*/
+    }
 
         public fname: string;
         public lname: string;
