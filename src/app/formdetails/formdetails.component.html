@@ -1,18 +1,30 @@
 <h2>Dorm Data</h2>
-<table id="formdata"><tr>
-  <th>Field</th>
-  <th>Value</th>
-</tr><tr>
-<td>First Name:</td>
-<td>{{fetchobj.firstname}}</td>
-</tr>
-<tr>
-  <td>
-    Last Name:
-  </td>
-  <td>
-    {{fetchobj.lastname}}
-  </td>
-</tr>
-<botton (click)='EditDetails()'>Edit Details</botton>
+<table id="formdata">
+  <tr>
+    <th>Field</th>
+    <th>Value</th>
+  </tr>
+  <tr>
+    <td>First Name:</td>
+    <td>{{fetchobj.firstname}}</td>
+  </tr>
+  <tr>
+    <td>
+      Last Name:
+    </td>
+    <td>
+      {{fetchobj.lastname}}
+    </td>
+  </tr>
+  <tr>
+    <td>Employee Id:</td>
+    <td>{{fetchobj.empId}}</td>
+  </tr><tr>
+    <td>First Name:</td>
+    <td>{{fetchobj.contactnum}}</td>
+  </tr><tr>
+    <td>First Name:</td>
+    <td>{{fetchobj.gender}}</td>
+  </tr>
+  <button (click)='EditDetails()'>Edit Details</button>
 </table>

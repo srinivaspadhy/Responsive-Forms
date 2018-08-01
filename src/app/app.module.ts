@@ -9,18 +9,17 @@ import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import {RouterModule,Routes} from '@angular/router';
 import { FormdetailsComponent } from './formdetails/formdetails.component';
 const routes:Routes=[{
-  path:' ',
+  path:'',
   component :LoginComponent
 },
 {
   path:'formdetails',
   component:FormdetailsComponent
 },
-
-  {
-    path:'editdetails',
-    component:FormdetailsComponent
-  }
+{
+  path:'editdetails',
+  component:LoginComponent
+}
 ]
 
 
