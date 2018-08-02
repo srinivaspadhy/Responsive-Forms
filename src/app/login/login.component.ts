@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup, Validators } from '../../../node_modules/@angular/forms';
 import { Details } from '../details';
 import { Router } from '@angular/router';
+import { TransferService } from '../transfer.service';
+
 
 @Component({
   selector: 'app-login',
@@ -13,7 +15,7 @@ export class LoginComponent implements OnInit {
   fg: FormGroup;
   submitted: boolean = false;
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder, private router: Router, private srv: TransferService) {
 
   }
   getdata;
@@ -28,33 +30,35 @@ export class LoginComponent implements OnInit {
       confirmpassword: new FormControl(this.obj.cnfpass, [Validators.required, Validators.minLength(8), Validators.maxLength(16), Validators.pattern('((?=.*[0-9])(?=.*[a-z])(?=.*[!@#$%^&*()_+=-{:;"|.,<>]).{0,16})')])
 
     })
-    if(window.location.pathname=='/editdetails'){
-    this.getdata = JSON.parse(localStorage.getItem('get'));
+    if (window.location.pathname == '/editdetails') {
+      this.getdata = this.srv.tnf;
 
-    this.fg.patchValue({
-      firstname: this.getdata.firstname,
-      lastname: this.getdata.lastname,
-      gender: this.getdata.gender,
-      contactnum: this.getdata.contactnum,
-      empId: this.getdata.empId,
-      password: this.getdata.password,
-      confirmpassword: this.getdata.confirmpassword
+      this.fg.patchValue({
+        firstname: this.getdata.firstname,
+        lastname: this.getdata.lastname,
+        gender: this.getdata.gender,
+        contactnum: this.getdata.contactnum,
+        empId: this.getdata.empId,
+        password: this.getdata.password,
+        confirmpassword: this.getdata.confirmpassword
 
 
-    })}
+      })
+    }
 
   }
-  cnfpass:boolean=true;
-  togglepass(){
-    this.cnfpass=this.fg.value.password===this.fg.value.confirmpassword;}
-     get f() { return this.fg.controls; }
+  cnfpass: boolean = true;
+  togglepass() {
+    this.cnfpass = this.fg.value.password === this.fg.value.confirmpassword;
+  }
+  get f() { return this.fg.controls; }
   onSubmit() {
     this.submitted = true;
     // stop here if form is invalid
     if (this.fg.invalid) {
       return;
     }
-    localStorage.setItem('get', JSON.stringify(this.fg.value));
+    this.srv.tnf=this.fg.value;
     this.router.navigate(['/formdetails']);
     //alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.fg.value));
     // localStorage.setItem('key',JSON.stringify(this.fg.value));

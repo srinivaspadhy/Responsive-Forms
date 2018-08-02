@@ -8,6 +8,8 @@ import { LoginComponent } from './login/login.component';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import {RouterModule,Routes} from '@angular/router';
 import { FormdetailsComponent } from './formdetails/formdetails.component';
+
+import { TransferService } from './transfer.service';
 const routes:Routes=[{
   path:'',
   component :LoginComponent
@@ -37,7 +39,7 @@ const routes:Routes=[{
     FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [TransferService],
   bootstrap: [AppComponent],
   
 })
